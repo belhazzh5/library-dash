@@ -1,0 +1,192 @@
+{% extends "dash.html" %}
+
+{% load static %}
+{% block content %}
+<!--Start Dashboard Content-->
+
+<div class="card mt-3">
+  <div class="card-content">
+      <div class="row row-group m-0">
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+              <div class="card-body">
+                <h5 class="text-white mb-0">{{all_book_instance}} <span class="float-right"><i class="fa fa-shopping-cart"></i></span></h5>
+                  <div class="progress my-3" style="height:3px;">
+                     <div class="progress-bar" style="width:55%"></div>
+                  </div>
+                <p class="mb-0 text-white small-font">Total Instance <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+              </div>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+              <div class="card-body">
+                <h5 class="text-white mb-0">{{price}}<span class="float-right"><i class="fa fa-usd"></i></span></h5>
+                  <div class="progress my-3" style="height:3px;">
+                     <div class="progress-bar" style="width:55%"></div>
+                  </div>
+                <p class="mb-0 text-white small-font">Total Revenue <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+              </div>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+              <div class="card-body">
+                <h5 class="text-white mb-0">{{users}}<span class="float-right"><i class="fa fa-eye"></i></span></h5>
+                  <div class="progress my-3" style="height:3px;">
+                     <div class="progress-bar" style="width:55%"></div>
+                  </div>
+                <p class="mb-0 text-white small-font">Visitors <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+              </div>
+          </div>
+          <div class="col-12 col-lg-6 col-xl-3 border-light">
+              <div class="card-body">
+                <h5 class="text-white mb-0">{{messages_nb}} <span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                  <div class="progress my-3" style="height:3px;">
+                     <div class="progress-bar" style="width:55%"></div>
+                  </div>
+                <p class="mb-0 text-white small-font">Messages <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>  
+  
+<div class="row">
+   <div class="col-12 col-lg-8 col-xl-8">
+    <div class="card">
+   <div class="card-header">Site Traffic
+     <div class="card-action">
+     <div class="dropdown">
+     <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+      <i class="icon-options"></i>
+     </a>
+      <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="javascript:void();">Action</a>
+      <a class="dropdown-item" href="javascript:void();">Another action</a>
+      <a class="dropdown-item" href="javascript:void();">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="javascript:void();">Separated link</a>
+       </div>
+      </div>
+     </div>
+   </div>
+   <div class="card-body">
+      <ul class="list-inline">
+      <li class="list-inline-item"><i class="fa fa-circle mr-2 text-white"></i>New Visitor</li>
+      <li class="list-inline-item"><i class="fa fa-circle mr-2 text-light"></i>Old Visitor</li>
+    </ul>
+    <div class="chart-container-1">
+      <canvas data-new={{new_users}} data-old={{old_users}} id="chart1"></canvas>
+    </div>
+   </div>
+   
+   
+  </div>
+ </div>
+
+   <div class="col-12 col-lg-4 col-xl-4">
+      <div class="card">
+         <div class="card-header">Weekly sales
+           <div class="card-action">
+           <div class="dropdown">
+           <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+            <i class="icon-options"></i>
+           </a>
+            <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="javascript:void();">Action</a>
+            <a class="dropdown-item" href="javascript:void();">Another action</a>
+            <a class="dropdown-item" href="javascript:void();">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void();">Separated link</a>
+             </div>
+            </div>
+           </div>
+         </div>
+         <div class="card-body">
+       <div class="chart-container-2">
+             <canvas data-available={{book_available}} data-reserved={{book_reserved}} data-onloan={{book_on_loan}} data-maintenance={{book_maintenance}} id="chart2"></canvas>
+      </div>
+         </div>
+         <div class="table-responsive">
+           <table class="table align-items-center">
+             <tbody>
+               <tr>
+                 <td><i class="fa fa-circle text-white mr-2"></i> Maintenance</td>
+                 <td>${{book_maintenance}}</td>
+                 <td>+{{book_maintenance_percent}}%</td>
+               </tr>
+               <tr>
+                 <td><i class="fa fa-circle text-light-1 mr-2"></i>Available</td>
+                 <td>${{book_available}}</td>
+                 <td>+{{book_available_percent}}%</td>
+               </tr>
+               <tr>
+                 <td><i class="fa fa-circle text-light-2 mr-2"></i>Reserved</td>
+                 <td>${{book_reserved}}</td>
+                 <td>+{{book_reserved_percent}}%</td>
+               </tr>
+               <tr>
+                 <td><i class="fa fa-circle text-light-3 mr-2"></i>On Loan</td>
+                 <td>${{book_on_loan}}</td>
+                 <td>+{{book_on_loan_percent}}%</td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div>
+   </div>
+</div><!--End Row-->
+
+<div class="row">
+ <div class="col-12 col-lg-12">
+   <div class="card">
+     <div class="card-header">Recent Order Tables
+    <div class="card-action">
+           <div class="dropdown">
+           <a href="javascript:void();" class="dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown">
+            <i class="icon-options"></i>
+           </a>
+            <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="javascript:void();">Action</a>
+            <a class="dropdown-item" href="javascript:void();">Another action</a>
+            <a class="dropdown-item" href="javascript:void();">Something else here</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="javascript:void();">Separated link</a>
+             </div>
+            </div>
+           </div>
+   </div>
+       <div class="table-responsive">
+               <table class="table align-items-center table-flush table-borderless">
+                <thead>
+                 <tr>
+                   <th>Book</th>
+                   <th>Photo</th>
+                   <th>Product ID</th>
+                   <th>Amount</th>
+                   <th>Date Due Back</th>
+                   <th>Shipping</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                  {% for book in recent_book_instance %}
+                  <tr>
+                  <td> {{book.book.title}}</td>
+                  {% if  book.book.image %}
+                  <td><img src="{{book.book.image.url}}" class="product-img" alt="product img"></td>
+                  {% else %}
+                  <td><img src="{% static 'images/default.jpg' %}" class="product-img" alt="product img"></td>
+                  {% endif %}
+                  <td>#{{book.id}}</td>
+                  <td>$ {{book.book.price}}</td>
+                  <td>{{book.due_back}}</td>
+        <td><div class="progress shadow" style="height: 3px;">
+                        <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                      </div></td>
+                 </tr>
+                 {% endfor %}
+               </tbody></table>
+             </div>
+   </div>
+ </div>
+</div><!--End Row-->
+
+    <!--End Dashboard Content-->
+  
+{% endblock content %}

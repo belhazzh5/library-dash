@@ -1,0 +1,24 @@
+{% extends "dash.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="row mt-3">
+      <div class="col-lg-6">
+         <div class="card">
+           <div class="card-body">
+           <div class="card-title">Add Blog</div>
+           <hr>
+            <form method='POST'>
+              {% csrf_token %}
+              {{form.as_p}}
+           <div class="form-group">
+            <button type="submit" class="btn btn-light px-5"><i class="fa fa-plus" aria-hidden="true"></i> Add Blog</button>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+
+    </div><!--End Row-->
+
+    {% endblock content %}

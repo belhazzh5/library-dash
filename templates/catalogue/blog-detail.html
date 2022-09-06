@@ -1,0 +1,145 @@
+{% extends 'base_generic.html' %}
+{% block title %}Blog Detail{% endblock title %}
+
+{% block content %}
+<div class="overflow-hidden">
+	<div class="container position-relative">
+		<article class="z-index-1 position-relative">
+			<header class="py-7">
+				<a href="{% url 'catalog' %}" class="btn-arrow-left fw-700 text-decoration-none mb-5 d-inline-block">All posts</a>
+				<h1 class="headline">Reading Life</h1>
+				<h2 class="subhead w-70 mb-6">{{blog.title}}</h2>
+				<p class="article-tags">
+					<span class="tag rounded-pill me-2 fw-700 bg-primary text-white shadow-lg py-2 px-3 small featured">reading</span>
+					<span class="tag rounded-pill me-2 fw-700 bg-white shadow-lg py-2 px-3 small">books</span>
+					<span class="tag rounded-pill me-2 fw-700 bg-white shadow-lg py-2 px-3 small">passion</span>
+				</p>
+			</header>
+			<main>
+				<section class="mb-7">
+					<div class="row">
+						<div class="col-md-8">
+							<h5>{{blog_1.title}}</h5>
+						</div>
+					</div>
+
+					<div class="row row-cols-1 row-cols-md-3 text-body">
+						<div class="col">
+							<p>{{blog_1.description}}</p>
+						</div>
+
+
+						<div class="col">
+							<figure><img class="img-fluid" src="{{blog_1.image.url}}" alt="a smiling person in a pink hoodie, standing in front of a bright pink lighted arcade basketball game. " />
+								<figcaption class="small text-muted mt-2">Photo by Freddy G</figcaption>
+							</figure>
+						</div>
+					</div>
+				</section>
+
+				<section class="mb-7" data-tor-group="
+            [class*='col'] => inview:[fade.in pull.up(md)] slower quad delay(/+50ms/);
+            img => scroll:@T=translate(-99.99%; 0%, {end: 50});
+          ">
+					<h2 class="mb-6">{{blog_2.title}}</h2>
+
+					<div class="row">
+						<div class="col-md-8">
+							<p class="lead mb-6 pb-3">{{blog_2.description}}</p>
+						</div>
+					</div>
+
+					<div class="row text-body">
+						<div class="col-md-8">
+							<figure class="overflow-hidden"><img class="img-fluid" src="{{blog_2.image.url}}" alt="two people playing Guitar Hero Arcade. " />
+							</figure>
+						</div>
+					</div>
+
+				</section>
+
+				<section class="mb-7" data-tor-group="
+            [class*='col'] => inview:[fade.in pull.up(md)] slower quad delay(/+50ms/);
+            img => scroll:@T=scale(80%;100%);
+          ">
+					<h2 class="mb-6">{{blog_3.title}}</h2>
+
+					<div class="row">
+						<div class="col-md-8">
+							<div class="row text-body">
+								<div class="col-md-6">
+									<p>{{blog_3.description}}</p>
+								</div>
+								<div class="col-md-6">
+									<p>{{blog_3.description|truncatewords:30}}</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<figure><img class="img-fluid" src="{{blog_3.image.url}}" alt="a person wearing a bucket hat, sitting on a skee ball machine lane. " />
+							</figure>
+						</div>
+					</div>
+				</section>
+
+				<section class="mb-7">
+					<div class="row g-0">
+						<div class="col">
+							<figure class="overflow-hidden"><img data-tor="scroll:@T=translateX(50%;0%)" class="img-fluid" src="{{blog_4.image.url}}" alt="a person in black high-heeled boots sitting on an arcade basketball game. " />
+							</figure>
+						</div>
+						<div class="col">
+							<figure class="overflow-hidden"><img data-tor="scroll:@T=translateX(-50%;0%)" class="img-fluid" src="{{blog_5.image.url}}" alt="a person in a white t-shirt sitting on a wheel of fortune arcade game. " />
+							</figure>
+						</div>
+
+					</div>
+				</section>
+				{% if blog_6 %}
+				<section data-tor-group="
+            [class*='col'] => inview:[fade.in pull.up(md)] slower quad delay(/+50ms/);
+          ">
+					<h2 class="mb-6">{{blog_6.title}}</h2>
+					<div class="row">
+						<div class="col-md-8">
+							<p class="lead mb-6 pb-3">{{blog.description}}</p>
+						</div>
+					</div>
+
+					<div class="row mb-7">
+						<div class="col-md-4">
+							</div>
+							<p style="line-height:2">{{blog_6.description}}</p>
+							</div>
+
+					<div class="h-50rem">
+						<figure><img class="w-100" src="{{blog_6.image.url}}" alt="three neon-lit skee ball lanes. " data-tor="scroll:@T=scale(2;1, {end: 60}) origin.top" />
+						</figure>
+					</div>
+
+				</section>
+				{% endif %}
+			</main>
+
+		</article>
+
+		<div class="bg">
+			<div class="container h-100">
+				<div class="row row-cols-3 h-100">
+					<div class="col">
+						<div class="border-start border-end h-100"></div>
+					</div>
+					<div class="col">
+						<div class="border-start border-end h-100"></div>
+					</div>
+					<div class="col">
+						<div class="border-start border-end h-100"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

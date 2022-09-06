@@ -1,0 +1,21 @@
+{% extends 'dash.html' %}
+{% block content %}
+<h2>Enjoy with your mind not eyes!</h2>
+<p>Borrower: Reader,{{ request.user }}</p>
+{% comment %} {% for field, errors in form.errors.items %}
+    {% for error in errors %}
+    <div class="alert alert-danger" role="alert">
+       {{error}}
+      </div>
+      {% endfor %}
+      {% endfor %} {% endcomment %}
+<form action="" method="post">
+  {% csrf_token %}
+  <table>
+  {{ form.as_table }}
+  </table>
+  <input type="submit" value="Submit">
+</form>
+
+
+{% endblock content %}

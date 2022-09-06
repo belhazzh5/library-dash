@@ -1,0 +1,59 @@
+{% load static %}
+<!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="{% url 'catalog' %}">
+              <span>
+                <span><img src="{% static 'images/logo-icon.png' %}" alt=""></span> Bostorek
+              </span>
+            </a>
+  
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link pl-lg-0" href="{% url 'catalog' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'books' %}"> Books</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'catalog' %}#blog"> Blog </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'catalog' %}#contact">Contact Us</a>
+                </li>
+                {% if user.is_staff %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'my-borrowed' %}">Dashboard</a>
+                </li>
+                {% endif %}
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'logout' %}#contact">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'login' %}#contact">Login</a>
+                </li>
+                {% endif %}
+              </ul>
+              <form class="search_form" action="{% url 'books' %}" >
+                <input type="search" class="form-control rounded" name="query" placeholder="Search here..." id="query" aria-label="Search" aria-describedby="search-addon" />
+                <button type="submit" class="btn btn-outline-primary">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->

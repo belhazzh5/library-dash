@@ -1,0 +1,7 @@
+select option {
+    background-color: white !important;
+    color: black !important;
+  }
+.errorlist li {
+  color: #ffa5a5;
+}
